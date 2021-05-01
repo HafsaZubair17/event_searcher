@@ -1,0 +1,44 @@
+@import "../../App.scss";
+
+.artist{
+    width: 18rem;
+    margin-top:20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius:25px;
+}
+
+.card-artist{
+    width: 18rem;
+    background-color: $maincolor !important;
+    border-radius:25px !important;
+}
+.card-img-top{
+    border-radius:25px !important;
+}
+a, a:hover{
+    color:$altcolor !important;
+}
+.title{
+    color:$altcolor !important;
+    font-size:2rem !important;
+    font-weight: 500 !important;
+}
+.btn, .btn:hover {
+    background-color: $altcolor !important;
+    color:$maincolor !important;
+}
+@media only screen and (max-width: 700px) {
+    .artist,.card-artist{
+        width:15rem;
+        font-size: 10px;
+    }
+    .btn{
+        font-size: 10px !important;
+        margin-top:0.5px;
+    }
+    .title{
+        font-size: 20px !important;
+    }
+}
