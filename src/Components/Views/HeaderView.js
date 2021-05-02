@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "../Styles/Header.scss";
 import SearchBar from "material-ui-search-bar";
 import { SocialIcon } from 'react-social-icons';
 
 // Header of Web Page
+
 const Header=()=>{
+    const [state, setState] = useState('');
     return(
             <div className="row">
                 <a href="https://www.bandsintown.com/" target="_blank">
@@ -12,7 +14,7 @@ const Header=()=>{
                 </a>
 
                 <SearchBar  className="search" 
-                            //value={this.value}
+                            //value={this.setState.value}
                             //onRequestSearch={(value)=>console.log(value)}
                             placeholder="Search the artist here!"/>
 

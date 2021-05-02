@@ -10,7 +10,7 @@ function App() {
         <Header/>
         <Carousels/>
         <hr></hr>
-        <Artist/>
+        {/* <Artist/> */}
         <hr></hr>
         <EventDisplay/>
       </header>
