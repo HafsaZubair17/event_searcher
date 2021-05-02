@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
@@ -6,16 +5,37 @@ import axios from "axios";
 import "../Styles/Artist.scss";
 
 //Display Artist from API call result
-const Artist = ({ artistsData }) => {
-  //   const artistData = {
-  //     id: 510,
-  //     name: "Maroon 5",
-  //     url: " http://www.bandsintown.com/Maroon5?came_from=67",
-  //     image_url: "https://s3.amazonaws.com/bit-photos/large/7481529.jpeg",
-  //     facebook_page_url: " https://www.facebook.com/maroon5",
-  //   };
+const Artist = ({
+  artistData,
+  artistName,
+  setEventInitial,
+  setEventData,
+  setLoading,
+}) => {
+  const getEventData = (Artist) => {
+    setEventInitial(true);
+    setLoading(true);
+    axios({
+      method: "GET",
+      url:
+        "https://rest.bandsintown.com/artists/" +
+        Artist +
+        "/events?app_id=123123&date=upcoming",
+    })
+      .then((res) => {
+        setLoading(false);
+        if (res.data.length > 0) {
+          setEventData(res.data);
+        } else {
+          setEventData("");
+        }
+      })
+      .catch((err) => {
+        console.log(err, "Error getting tags");
+      });
+  };
 
-  function DisplayArtist(data) {
+  const DisplayArtist = (data) => {
     return (
       <div className="artist">
         <Card className="card-artist">
@@ -29,22 +49,22 @@ const Artist = ({ artistsData }) => {
                 </a>
               ) : null}
             </Card.Text>
-            <Button>Get Event Details</Button>
+            <Button onClick={() => getEventData(artistName)}>
+              Get Event Details
+            </Button>
           </Card.Body>
         </Card>
       </div>
     );
-  }
-  function DisplayArtistMessage() {
+  };
+  const DisplayArtistMessage = () => {
     return (
       <div>
         <h1 className="heading">No Artist Found!😕</h1>
       </div>
     );
-  }
+  };
 
-  return artistsData !== ""
-    ? DisplayArtist(artistsData)
-    : DisplayArtistMessage();
+  return artistData !== "" ? DisplayArtist(artistData) : DisplayArtistMessage();
 };
 export default Artist;

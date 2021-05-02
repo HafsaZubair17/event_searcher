@@ -5,22 +5,32 @@ import SearchBar from "material-ui-search-bar";
 import { SocialIcon } from "react-social-icons";
 
 // Header of Web Page
-const Header = ({ setArtistsData, setInitial }) => {
+const Header = ({
+  setArtistData,
+  setInitial,
+  setArtistName,
+  setEventInitial,
+  setLoading,
+}) => {
   const [search, setSearch] = useState("");
+
   const getData = (userInput) => {
     setSearch("");
     setInitial(true);
+    setEventInitial(false);
+    setLoading(true);
     axios({
       method: "GET",
       url:
         "https://rest.bandsintown.com/artists/" + userInput + "?app_id=123123",
     })
       .then((res) => {
-        console.log(res.data);
+        setLoading(false);
         if (!res.data.error) {
-          setArtistsData(res.data);
+          setArtistData(res.data);
+          setArtistName(res.data.name);
         } else {
-          setArtistsData("");
+          setArtistData("");
         }
       })
       .catch((err) => {
