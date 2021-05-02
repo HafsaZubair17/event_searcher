@@ -1,7 +1,7 @@
-import Header from "./Components/Views/Header";
-import Carousels from "./Components/Views/Carousel";
-import Artist from "./Components/Views/Artist";
-import EventDisplay from "./Components/Views/Event/EventDisplay";
+import Header from "./Components/Views/HeaderView";
+import Carousels from "./Components/Views/CarouselView";
+import Artist from "./Components/Views/ArtistView";
+import EventDisplay from "./Components/Views/Event/EventDisplayView";
 
 function App() {
   return (
