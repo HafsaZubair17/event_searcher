@@ -2,6 +2,8 @@ import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import "../Styles/Carousel.scss";
 
+
+//Carousel Under the Header
 const Carousels=()=>{
 
     return(

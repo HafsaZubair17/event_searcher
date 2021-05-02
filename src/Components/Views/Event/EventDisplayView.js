@@ -3,6 +3,7 @@ import Event from './EventView';
 import "../../Styles/EventDisplay.scss";
 
 
+//Display Events for a given artist
 const EventDisplay=({Venue, Country, City, Date})=>{
     return(
         <>  

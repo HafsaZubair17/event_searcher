@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Search from "../Model&Controller/Search.js";
 import "../Styles/Artist.scss";
 
+//Display Artist from API call result
 const Artist=()=>{
     const artistData={
         id: 510,
