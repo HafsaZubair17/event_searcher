@@ -10,10 +10,9 @@ const Artist=()=>{
         <Card className="card-artist">
         <Card.Img variant="top" src="/Artist.jpg" />
         <Card.Body>
-            <Card.Title class="title">Adele</Card.Title>
+            <Card.Title className="artist-title">Adele</Card.Title>
             <Card.Text>
-            <a href="facebook.com/adele" target="_blank" Style={{color:"black"}}
-            >Visit the Facebook Page</a>
+            <a href="facebook.com/adele" target="_blank">Visit the Facebook Page</a>
             </Card.Text>
             <Button>Get Event Details</Button>
         </Card.Body>

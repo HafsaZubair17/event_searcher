@@ -1,13 +1,13 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card'
-import "../Styles/Event.scss";
+import "../../Styles/Event.scss";
 
 
 const Event=({Venue, Country, City, Date})=>{
     return(
             <Card className="event-card">
                     <Card.Body >
-                        <Card.Title>Event Details</Card.Title>
+                        <Card.Title className="event-title">Event Details</Card.Title>
                         <hr></hr>
                         <div className="geo">
                             <div className="country">

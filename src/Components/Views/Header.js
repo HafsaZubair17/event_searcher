@@ -11,7 +11,7 @@ const Header=()=>{
                 <img className="logo" src="/logo.png" href="https://www.bandsintown.com/"/>
                 </a>
 
-                <SearchBar className="search" placeholder="Search your artist here!"/>
+                <SearchBar className="search" onRequestSearch={()=>console.log("Hello")} placeholder="Search your artist here!"/>
 
                 <SocialIcon className="twitter" 
                             url="https://twitter.com/Bandsintown?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" 
