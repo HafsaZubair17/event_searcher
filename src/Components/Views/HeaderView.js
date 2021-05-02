@@ -5,19 +5,22 @@ import SearchBar from "material-ui-search-bar";
 import { SocialIcon } from "react-social-icons";
 
 // Header of Web Page
-
-const Header = ({ setArtistsData }) => {
+const Header = ({ setArtistsData, setInitial }) => {
+  const [search, setSearch] = useState("");
   const getData = (userInput) => {
+    setSearch("");
+    setInitial(true);
     axios({
       method: "GET",
       url:
         "https://rest.bandsintown.com/artists/" + userInput + "?app_id=123123",
     })
       .then((res) => {
-        //add if statement and check if res.status is 200
         console.log(res.data);
         if (!res.data.error) {
           setArtistsData(res.data);
+        } else {
+          setArtistsData("");
         }
       })
       .catch((err) => {
@@ -25,11 +28,6 @@ const Header = ({ setArtistsData }) => {
       });
   };
 
-  // const [Input, setInput] = useState('');
-  // const handleChange = (e)=> {
-  //     setInput(e.target.value);
-  //     console.log(Input);
-  //   };
   return (
     <div className="row">
       <a href="https://www.bandsintown.com/" target="_blank">
@@ -42,6 +40,8 @@ const Header = ({ setArtistsData }) => {
 
       <SearchBar
         className="search"
+        value={search}
+        onChange={(value) => setSearch(value)}
         onRequestSearch={(value) => getData(value)}
         placeholder="Search the artist here!"
       />

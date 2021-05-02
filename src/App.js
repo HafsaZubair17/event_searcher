@@ -7,17 +7,22 @@ import EventDisplay from "./Components/Views/Event/EventDisplayView";
 // Begin Main App
 function App() {
   const [artistsData, setArtistsData] = useState("");
+  const [initial, setInitial] = useState(false);
   const [artistName, setArtistName] = useState("");
 
   return (
     <div className="App">
       <header>
-        <Header setArtistsData={setArtistsData} />
+        <Header setArtistsData={setArtistsData} setInitial={setInitial} />
         <Carousels />
-        <hr></hr>
-        <Artist artistsData={artistsData} />
-        <hr></hr>
-        <EventDisplay />
+        {initial ? (
+          <>
+            <hr></hr>
+            <Artist artistsData={artistsData} />
+            <hr></hr>
+            <EventDisplay />
+          </>
+        ) : null}
       </header>
     </div>
   );
