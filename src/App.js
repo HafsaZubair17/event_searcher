@@ -5,6 +5,7 @@ import Artist from "./Components/Views/ArtistView";
 import EventDisplay from "./Components/Views/Event/EventDisplayView";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Spinner from "react-bootstrap/Spinner";
 
 // Begin Main App
 function App() {
@@ -14,6 +15,7 @@ function App() {
   const [eventInitial, setEventInitial] = useState(false);
   const [eventData, setEventData] = useState("");
   const [loading, setLoading] = useState(false);
+  const [eventLoading, setEventLoading] = useState(false);
 
   return (
     console.log(eventData),
@@ -37,22 +39,25 @@ function App() {
                   artistName={artistName}
                   setEventInitial={setEventInitial}
                   setEventData={setEventData}
-                  setLoading={setLoading}
+                  setEventLoading={setEventLoading}
                 />
               </>
             ) : (
-              <Loader />
+              <div className="d-flex justify-content-center">
+                <Spinner className="spinner" animation="grow" variant="dark" />
+              </div>
             )
-          ) : // add spinner here
-          null}
+          ) : null}
           {eventInitial ? (
-            !loading ? (
+            !eventLoading ? (
               <>
                 <hr></hr>
                 <EventDisplay eventData={eventData} />
               </>
             ) : (
-              <Loader />
+              <div className="d-flex justify-content-center">
+                <Spinner className="spinner" animation="grow" variant="dark" />
+              </div>
             )
           ) : null}
         </header>

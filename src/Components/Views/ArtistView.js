@@ -10,11 +10,11 @@ const Artist = ({
   artistName,
   setEventInitial,
   setEventData,
-  setLoading,
+  setEventLoading,
 }) => {
   const getEventData = (Artist) => {
     setEventInitial(true);
-    setLoading(true);
+    setEventLoading(true);
     axios({
       method: "GET",
       url:
@@ -23,7 +23,7 @@ const Artist = ({
         "/events?app_id=123123&date=upcoming",
     })
       .then((res) => {
-        setLoading(false);
+        setEventLoading(false);
         if (res.data.length > 0) {
           setEventData(res.data);
         } else {
