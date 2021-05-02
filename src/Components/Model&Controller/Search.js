@@ -8,5 +8,11 @@ const Search=()=>{
 
     const [artistData, setArtistData] = useState();
     const [artistName, setArtistName] = useState('');
+    
+    // const getData=()=>{
+    //     setArtistName(userInput);
+
+    // }
+
 
 }

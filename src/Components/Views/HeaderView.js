@@ -6,7 +6,11 @@ import { SocialIcon } from 'react-social-icons';
 // Header of Web Page
 
 const Header=()=>{
-    const [state, setState] = useState('');
+    const [Input, setInput] = useState('');
+    const handleChange = (e)=> {
+        setInput(e.target.value);
+        console.log(Input);
+      };
     return(
             <div className="row">
                 <a href="https://www.bandsintown.com/" target="_blank">
@@ -14,8 +18,8 @@ const Header=()=>{
                 </a>
 
                 <SearchBar  className="search" 
-                            //value={this.setState.value}
-                            //onRequestSearch={(value)=>console.log(value)}
+                            value={Input}
+                            onRequestSearch={handleChange}
                             placeholder="Search the artist here!"/>
 
                 <SocialIcon className="twitter" 
