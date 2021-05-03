@@ -31,15 +31,6 @@ const Event = ({ Venue, Country, City, Date }) => {
               <p>{Date}</p>
             </div>
           </div>
-          {/* <div className="getTickets">
-            <a
-              className="getTicketsLink"
-              href="https://www.bandsintown.com/"
-              target="_blank"
-            >
-              Get Ticket Now
-            </a>
-          </div> */}
         </div>
       </Card.Body>
     </Card>

@@ -7,6 +7,7 @@ import Spinner from "react-bootstrap/Spinner";
 
 // Begin Main App
 function App() {
+  let Search;
   const [artistData, setArtistData] = useState("");
   const [initial, setInitial] = useState(false);
   const [artistName, setArtistName] = useState("");
@@ -50,6 +51,7 @@ function App() {
             <>
               <hr></hr>
               <EventDisplay
+                id="event"
                 eventData={eventData}
                 setEventInitial={setEventInitial}
                 setInitial={setInitial}

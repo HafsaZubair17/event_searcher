@@ -6,11 +6,6 @@ import "../../../Styles/EventDisplay.scss";
 
 //Display Events for a given artist
 const EventDisplay = ({ eventData, setInitial, setEventInitial }) => {
-  const resetData = () => {
-    //setInitial(false);
-    //setEventInitial(false);
-  };
-
   // Function to display all the given events
   const DisplayEvent = () => {
     return (
@@ -28,7 +23,6 @@ const EventDisplay = ({ eventData, setInitial, setEventInitial }) => {
               City={val.venue.city}
               Venue={val.venue.name}
               Date={moment(val.datetime).format("L")}
-              // href={val.offers.url}
             />
           ))}
         </div>
@@ -47,7 +41,10 @@ const EventDisplay = ({ eventData, setInitial, setEventInitial }) => {
         <div className="searchButton">
           <Button
             className="searchAgain tracking-in-expand-fwd"
-            onClick={resetData()}
+            onClick={() => {
+              setInitial(false);
+              setEventInitial(false);
+            }}
           >
             Search Again
           </Button>
@@ -55,6 +52,6 @@ const EventDisplay = ({ eventData, setInitial, setEventInitial }) => {
       </div>
     );
   };
-  return eventData != "" ? DisplayEvent() : DisplayEventMessage();
+  return eventData !== "" ? DisplayEvent() : DisplayEventMessage();
 };
 export default EventDisplay;

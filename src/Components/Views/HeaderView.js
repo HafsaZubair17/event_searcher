@@ -15,6 +15,7 @@ const Header = ({
   const [search, setSearch] = useState("");
 
   //  API Call to get Artist Data
+
   const getData = (userInput) => {
     setSearch("");
     setInitial(true);
@@ -35,7 +36,7 @@ const Header = ({
         }
       })
       .catch((err) => {
-        console.log(err, "Error getting tags");
+        console.log(err, "Error Getting API Response");
       });
   };
 
@@ -46,6 +47,7 @@ const Header = ({
           className="logo"
           src="/logo.png"
           href="https://www.bandsintown.com/"
+          alt="logo"
         />
       </a>
 
