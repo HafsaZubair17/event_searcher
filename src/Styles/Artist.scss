@@ -31,6 +31,17 @@ a:hover {
   background-color: $altcolor !important;
   color: $maincolor !important;
 }
+.searchButton {
+  display: flex !important;
+  justify-content: center i !important;
+}
+.searchAgain {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 3rem !important;
+  margin-top: 1rem !important;
+  height: 3.5rem !important;
+}
 
 //Animation for cards
 .slit-in-vertical {
@@ -127,5 +138,8 @@ a:hover {
   }
   .artist-title {
     font-size: 20px !important;
+  }
+  .searchAgain {
+    height: 2rem !important;
   }
 }

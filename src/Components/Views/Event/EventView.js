@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import "../../../Styles/Event.scss";
 
 //Reusable component to Display events for the artist
-const Event = ({ Venue, Country, City, Date }) => {
+const Event = ({ Venue, Country, City, Date, Button }) => {
   return (
     <Card className="event-card">
       <Card.Body>

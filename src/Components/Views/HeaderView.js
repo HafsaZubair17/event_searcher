@@ -61,8 +61,8 @@ const Header = ({
         className="twitter"
         url="https://twitter.com/Bandsintown?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
         target="_blank"
-        bgColor="#00CEC8"
-        fgColor=" #000000"
+        bgColor="#126e82"
+        fgColor=" #d8e3e7"
       />
     </div>
   );

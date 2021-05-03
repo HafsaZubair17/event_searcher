@@ -1,10 +1,16 @@
 import React from "react";
+import Button from "react-bootstrap/Button";
 import Event from "./EventView";
 import moment from "moment";
 import "../../../Styles/EventDisplay.scss";
 
 //Display Events for a given artist
-const EventDisplay = ({ eventData }) => {
+const EventDisplay = ({ eventData, setInitial, setEventInitial }) => {
+  const resetData = () => {
+    //setInitial(false);
+    //setEventInitial(false);
+  };
+
   // Function to display all the given events
   const DisplayEvent = () => {
     return (
@@ -12,7 +18,7 @@ const EventDisplay = ({ eventData }) => {
         <h1 className="heading tracking-in-expand-fwd ">Events</h1>
         <h2 className="sub-heading tracking-in-expand-fwd ">
           {" "}
-          {eventData.length} Events Found!🎉
+          {eventData.length} Upcoming Events!🎉
         </h2>
         <div className="event-display fade-in-fwd">
           {eventData.map((val) => (
@@ -37,6 +43,14 @@ const EventDisplay = ({ eventData }) => {
           {" "}
           No Upcoming Events!😔{" "}
         </h1>
+        <div className="searchButton">
+          <Button
+            className="searchAgain tracking-in-expand-fwd"
+            onClick={resetData()}
+          >
+            Search Again
+          </Button>
+        </div>
       </div>
     );
   };

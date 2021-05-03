@@ -34,6 +34,7 @@ function App() {
                 artistData={artistData}
                 artistName={artistName}
                 setEventInitial={setEventInitial}
+                setInitial={setInitial}
                 setEventData={setEventData}
                 setEventLoading={setEventLoading}
               />
@@ -48,7 +49,11 @@ function App() {
           !eventLoading ? (
             <>
               <hr></hr>
-              <EventDisplay eventData={eventData} />
+              <EventDisplay
+                eventData={eventData}
+                setEventInitial={setEventInitial}
+                setInitial={setInitial}
+              />
             </>
           ) : (
             <div className="d-flex justify-content-center">
