@@ -28,6 +28,7 @@ const EventDisplay = ({ eventData, setInitial, setEventInitial }) => {
               City={val.venue.city}
               Venue={val.venue.name}
               Date={moment(val.datetime).format("L")}
+              // href={val.offers.url}
             />
           ))}
         </div>
