@@ -1,0 +1,61 @@
+@import "../App.scss";
+
+.event-card {
+  background-color: $altcolor !important;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 18rem;
+  overflow: hidden;
+}
+.geo,
+.geo2 {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.5rem;
+  justify-content: space-between;
+  overflow: hidden;
+  margin: 10px;
+}
+.city,
+.date {
+  text-align: end;
+  overflow: hidden;
+  width: 50%;
+}
+
+.country,
+.venue {
+  overflow: hidden;
+  text-align: start;
+  width: 50%;
+}
+.event-title,
+h6,
+p {
+  color: $maincolor !important;
+}
+.card-title {
+  margin-left: 0.5rem;
+  margin-right: auto;
+  margin-top: 20px;
+}
+.event-card {
+  background-color: $altcolor !important;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 24rem;
+  height: 15.5rem;
+  border-radius: 8% !important;
+}
+@media only screen and (max-width: 700px) {
+  .geo,
+  .geo2 {
+    font-size: 12px;
+  }
+  .card-title {
+    font-size: 16px;
+  }
+  .event-card {
+    width: 15rem;
+  }
+}

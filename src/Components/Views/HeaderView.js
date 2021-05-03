@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import "./ArtistView";
 import axios from "axios";
-import "../Styles/Header.scss";
+import "../../Styles/Header.scss";
 import SearchBar from "material-ui-search-bar";
 import { SocialIcon } from "react-social-icons";
 
@@ -14,7 +15,11 @@ const Header = ({
 }) => {
   const [search, setSearch] = useState("");
 
+  //  API Call to get Artist Data
   const getData = (userInput) => {
+    document
+      .getElementById("artist")
+      .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
     setSearch("");
     setInitial(true);
     setEventInitial(false);

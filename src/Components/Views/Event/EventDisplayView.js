@@ -1,9 +1,11 @@
 import React from "react";
 import Event from "./EventView";
-import "../../Styles/EventDisplay.scss";
+import moment from "moment";
+import "../../../Styles/EventDisplay.scss";
 
 //Display Events for a given artist
 const EventDisplay = ({ eventData }) => {
+  // Function to display all the given events
   const DisplayEvent = () => {
     return (
       <>
@@ -16,13 +18,15 @@ const EventDisplay = ({ eventData }) => {
               Country={val.venue.country}
               City={val.venue.city}
               Venue={val.venue.name}
-              Date={val.datetime}
+              Date={moment(val.datetime).format("L")}
             />
           ))}
         </div>
       </>
     );
   };
+
+  //Function to display message in case of no events
   const DisplayEventMessage = () => {
     return (
       <div className="event-message">

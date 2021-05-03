@@ -1,8 +1,7 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
-// import Search from "../Model&Controller/Search.js";
-import "../Styles/Artist.scss";
+import "../../Styles/Artist.scss";
 
 //Display Artist from API call result
 const Artist = ({
@@ -12,6 +11,7 @@ const Artist = ({
   setEventData,
   setEventLoading,
 }) => {
+  //API Call to get event details for a given artist
   const getEventData = (Artist) => {
     setEventInitial(true);
     setEventLoading(true);
@@ -37,7 +37,7 @@ const Artist = ({
 
   const DisplayArtist = (data) => {
     return (
-      <div className="artist">
+      <div className="artist" id="artist">
         <Card className="card-artist">
           <Card.Img variant="top" src={data.image_url} />
           <Card.Body>
@@ -59,7 +59,7 @@ const Artist = ({
   };
   const DisplayArtistMessage = () => {
     return (
-      <div>
+      <div id="artist">
         <h1 className="heading">No Artist Found!😕</h1>
       </div>
     );
