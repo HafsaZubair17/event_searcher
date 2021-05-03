@@ -37,7 +37,7 @@ const Artist = ({
 
   const DisplayArtist = (data) => {
     return (
-      <div className="artist" id="artist">
+      <div className="artist slit-in-vertical">
         <Card className="card-artist">
           <Card.Img variant="top" src={data.image_url} />
           <Card.Body>
@@ -59,8 +59,8 @@ const Artist = ({
   };
   const DisplayArtistMessage = () => {
     return (
-      <div id="artist">
-        <h1 className="heading">No Artist Found!😕</h1>
+      <div>
+        <h1 className="heading tracking-in-expand-fwd">No Artist Found!😕</h1>
       </div>
     );
   };

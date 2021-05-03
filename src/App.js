@@ -31,7 +31,6 @@ function App() {
             <>
               <hr></hr>
               <Artist
-                id="artist"
                 artistData={artistData}
                 artistName={artistName}
                 setEventInitial={setEventInitial}

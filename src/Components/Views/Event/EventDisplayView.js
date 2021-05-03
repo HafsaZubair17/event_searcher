@@ -9,9 +9,12 @@ const EventDisplay = ({ eventData }) => {
   const DisplayEvent = () => {
     return (
       <>
-        <h1 className="heading">Events</h1>
-        <h2 className="sub-heading"> {eventData.length} Events Found!🎉</h2>
-        <div className="event-display">
+        <h1 className="heading tracking-in-expand-fwd ">Events</h1>
+        <h2 className="sub-heading tracking-in-expand-fwd ">
+          {" "}
+          {eventData.length} Events Found!🎉
+        </h2>
+        <div className="event-display fade-in-fwd">
           {eventData.map((val) => (
             <Event
               className="events"
@@ -30,7 +33,10 @@ const EventDisplay = ({ eventData }) => {
   const DisplayEventMessage = () => {
     return (
       <div className="event-message">
-        <h1 className="heading"> No Upcoming Events!😔 </h1>
+        <h1 className="heading tracking-in-expand-fwd ">
+          {" "}
+          No Upcoming Events!😔{" "}
+        </h1>
       </div>
     );
   };
