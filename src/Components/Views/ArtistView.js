@@ -12,10 +12,11 @@ const Artist = ({
   setEventData,
   setEventLoading,
 }) => {
-  //API Call to get event details for a given artist
+  //API call and cache check to get event details for a given artist
   const getEventData = (Artist) => {
     setEventInitial(true);
     setEventLoading(true);
+    let artistEvent = artistName + " Events";
     axios({
       method: "GET",
       url:
@@ -25,17 +26,28 @@ const Artist = ({
     })
       .then((res) => {
         setEventLoading(false);
-        if (res.data.length > 0) {
-          setEventData(res.data);
+        if (localStorage.getItem(artistEvent.toLowerCase()) !== null) {
+          setEventData(
+            JSON.parse(localStorage.getItem(artistEvent.toLowerCase()))
+          );
         } else {
-          setEventData("");
+          if (res.data.length > 0) {
+            setEventData(res.data);
+            localStorage.setItem(
+              artistEvent.toLowerCase(),
+              JSON.stringify(res.data)
+            );
+          } else {
+            setEventData("");
+          }
         }
       })
       .catch((err) => {
-        console.log(err, "Error getting tags");
+        console.log(err, "Error Getting Events");
       });
   };
 
+  //Card to display artist data
   const DisplayArtist = (data) => {
     return (
       <>
@@ -61,6 +73,8 @@ const Artist = ({
       </>
     );
   };
+
+  //Message Displayed if no artist found
   const DisplayArtistMessage = () => {
     return (
       <div>

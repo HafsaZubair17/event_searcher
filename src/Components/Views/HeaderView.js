@@ -14,8 +14,7 @@ const Header = ({
 }) => {
   const [search, setSearch] = useState("");
 
-  //  API Call to get Artist Data
-
+  //  API call and cache check to get Artist Data
   const getData = (userInput) => {
     setSearch("");
     setInitial(true);
@@ -28,20 +27,33 @@ const Header = ({
     })
       .then((res) => {
         setLoading(false);
-        if (!res.data.error) {
-          setArtistData(res.data);
-          setArtistName(res.data.name);
+        if (localStorage.getItem(userInput.toLowerCase()) !== null) {
+          setArtistData(
+            JSON.parse(localStorage.getItem(userInput.toLowerCase()))
+          );
+          setArtistName(userInput);
         } else {
-          setArtistData("");
+          if (!res.data.error) {
+            localStorage.clear();
+            setArtistData(res.data);
+            setArtistName(res.data.name);
+            localStorage.setItem(
+              res.data.name.toLowerCase(),
+              JSON.stringify(res.data)
+            );
+          } else {
+            setArtistData("");
+          }
         }
       })
       .catch((err) => {
-        console.log(err, "Error Getting API Response");
+        console.log(err, "Error Getting Artist Data");
       });
   };
 
   return (
     <div className="row">
+      {/* Bands in Town Official Logo */}
       <a href="https://www.bandsintown.com/" target="_blank">
         <img
           className="logo"
@@ -51,6 +63,7 @@ const Header = ({
         />
       </a>
 
+      {/* Search Bar to take user input */}
       <SearchBar
         className="search"
         value={search}
@@ -59,6 +72,7 @@ const Header = ({
         placeholder="Search the artist here!"
       />
 
+      {/* Twitter icon and link of bands in town API  */}
       <SocialIcon
         className="twitter"
         url="https://twitter.com/Bandsintown?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"

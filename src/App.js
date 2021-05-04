@@ -19,6 +19,7 @@ function App() {
   return (
     <div className="App">
       <header>
+        {/* Header Component of the page */}
         <Header
           setArtistData={setArtistData}
           setInitial={setInitial}
@@ -26,11 +27,13 @@ function App() {
           setArtistName={setArtistName}
           setLoading={setLoading}
         />
+        {/* Carousel Under the Header */}
         <Carousels />
         {initial ? (
           !loading ? (
             <>
               <hr></hr>
+              {/* Component to display the artist */}
               <Artist
                 artistData={artistData}
                 artistName={artistName}
@@ -50,6 +53,7 @@ function App() {
           !eventLoading ? (
             <>
               <hr></hr>
+              {/* Component to display the Events for the artist */}
               <EventDisplay
                 id="event"
                 eventData={eventData}
