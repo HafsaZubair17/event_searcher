@@ -5,6 +5,7 @@ import "../../Styles/Artist.scss";
 
 //Display Artist from API call result
 const Artist = ({
+  locate,
   artistData,
   artistName,
   setInitial,
@@ -41,6 +42,7 @@ const Artist = ({
             setEventData("");
           }
         }
+        locate();
       })
       .catch((err) => {
         console.log(err, "Error Getting Events");

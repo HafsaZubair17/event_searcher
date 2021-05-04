@@ -11,10 +11,9 @@ const Header = ({
   setArtistName,
   setEventInitial,
   setLoading,
+  locate,
 }) => {
   const [search, setSearch] = useState("");
-
-  //  API call and cache check to get Artist Data
   const getData = (userInput) => {
     setSearch("");
     setInitial(true);
@@ -45,6 +44,7 @@ const Header = ({
             setArtistData("");
           }
         }
+        locate();
       })
       .catch((err) => {
         console.log(err, "Error Getting Artist Data");
@@ -65,7 +65,9 @@ const Header = ({
 
       {/* Search Bar to take user input */}
       <SearchBar
+        autoFocus
         className="search"
+        data-testid="search"
         value={search}
         onChange={(value) => setSearch(value)}
         onRequestSearch={(value) => getData(value)}
