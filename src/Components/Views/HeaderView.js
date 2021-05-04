@@ -1,56 +1,19 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { getData } from "../Model/Artist";
 import "../../Styles/Header.scss";
 import SearchBar from "material-ui-search-bar";
 import { SocialIcon } from "react-social-icons";
 
 // Header of Web Page
 const Header = ({
+  artistLocate,
   setArtistData,
   setInitial,
   setArtistName,
   setEventInitial,
   setLoading,
-  locate,
 }) => {
   const [search, setSearch] = useState("");
-  const getData = (userInput) => {
-    setSearch("");
-    setInitial(true);
-    setEventInitial(false);
-    setLoading(true);
-    axios({
-      method: "GET",
-      url:
-        "https://rest.bandsintown.com/artists/" + userInput + "?app_id=123123",
-    })
-      .then((res) => {
-        setLoading(false);
-        if (localStorage.getItem(userInput.toLowerCase()) !== null) {
-          setArtistData(
-            JSON.parse(localStorage.getItem(userInput.toLowerCase()))
-          );
-          setArtistName(userInput);
-        } else {
-          if (!res.data.error) {
-            localStorage.clear();
-            setArtistData(res.data);
-            setArtistName(res.data.name);
-            localStorage.setItem(
-              res.data.name.toLowerCase(),
-              JSON.stringify(res.data)
-            );
-          } else {
-            setArtistData("");
-          }
-        }
-        locate();
-      })
-      .catch((err) => {
-        console.log(err, "Error Getting Artist Data");
-      });
-  };
-
   return (
     <div className="row">
       {/* Bands in Town Official Logo */}
@@ -70,7 +33,18 @@ const Header = ({
         data-testid="search"
         value={search}
         onChange={(value) => setSearch(value)}
-        onRequestSearch={(value) => getData(value)}
+        onRequestSearch={(value) =>
+          getData(
+            value,
+            setArtistData,
+            setInitial,
+            setArtistName,
+            setEventInitial,
+            setLoading,
+            artistLocate,
+            setSearch
+          )
+        }
         placeholder="Search the artist here!"
       />
 

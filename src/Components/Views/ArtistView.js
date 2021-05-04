@@ -1,11 +1,12 @@
+import React from "react";
+import { getEventData } from "../Model/Event";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import axios from "axios";
 import "../../Styles/Artist.scss";
 
 //Display Artist from API call result
 const Artist = ({
-  locate,
+  eventLocate,
   artistData,
   artistName,
   setInitial,
@@ -13,42 +14,6 @@ const Artist = ({
   setEventData,
   setEventLoading,
 }) => {
-  //API call and cache check to get event details for a given artist
-  const getEventData = (Artist) => {
-    setEventInitial(true);
-    setEventLoading(true);
-    let artistEvent = artistName + " Events";
-    axios({
-      method: "GET",
-      url:
-        "https://rest.bandsintown.com/artists/" +
-        Artist +
-        "/events?app_id=123123&date=upcoming",
-    })
-      .then((res) => {
-        setEventLoading(false);
-        if (localStorage.getItem(artistEvent.toLowerCase()) !== null) {
-          setEventData(
-            JSON.parse(localStorage.getItem(artistEvent.toLowerCase()))
-          );
-        } else {
-          if (res.data.length > 0) {
-            setEventData(res.data);
-            localStorage.setItem(
-              artistEvent.toLowerCase(),
-              JSON.stringify(res.data)
-            );
-          } else {
-            setEventData("");
-          }
-        }
-        locate();
-      })
-      .catch((err) => {
-        console.log(err, "Error Getting Events");
-      });
-  };
-
   //Card to display artist data
   const DisplayArtist = (data) => {
     return (
@@ -66,7 +31,18 @@ const Artist = ({
                   </a>
                 ) : null}
               </Card.Text>
-              <Button onClick={() => getEventData(artistName)}>
+              <Button
+                onClick={() =>
+                  getEventData(
+                    artistName,
+                    eventLocate,
+                    artistName,
+                    setEventInitial,
+                    setEventData,
+                    setEventLoading
+                  )
+                }
+              >
                 Get Event Details
               </Button>
             </Card.Body>
