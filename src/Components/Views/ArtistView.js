@@ -1,5 +1,5 @@
 import React from "react";
-import { getEventData } from "../Model/Event";
+import { getEventData } from "../Models/Event";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import "../../Styles/Artist.scss";

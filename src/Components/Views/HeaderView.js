@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { getData } from "../Model/Artist";
+import { getData } from "../Models/Artist";
 import "../../Styles/Header.scss";
 import SearchBar from "material-ui-search-bar";
 import { SocialIcon } from "react-social-icons";

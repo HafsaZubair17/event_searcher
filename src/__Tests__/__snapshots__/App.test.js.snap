@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should take a snapshot 1`] = `
+exports[`should take a snapshot of app 1`] = `
 <DocumentFragment>
   <div
     class="App"
@@ -27,7 +27,7 @@ exports[`should take a snapshot 1`] = `
             class="ForwardRef-searchContainer-7"
           >
             <div
-              class="MuiInputBase-root MuiInput-root ForwardRef-input-6 MuiInputBase-fullWidth MuiInput-fullWidth"
+              class="MuiInputBase-root MuiInput-root ForwardRef-input-6 MuiInputBase-fullWidth MuiInput-fullWidth Mui-focused Mui-focused"
               data-testid="search"
             >
               <input
@@ -230,6 +230,8 @@ exports[`should take a snapshot 1`] = `
           </a>
         </div>
       </div>
+      <div />
+      <div />
     </header>
   </div>
 </DocumentFragment>
