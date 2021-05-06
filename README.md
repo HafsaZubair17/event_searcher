@@ -45,19 +45,14 @@ $ npm test
 
 ```
 React.js has been used for the development of this project because it comes packed with JSX that offers a great and easy development experience. You don’t have to learn any new attributes; you can simply use HTML tag as it uses JSX inside the javascript. UI created by react are highly responsive and loads smoothly. 
-
 It is component based and offers many features like hooks, reusable components, props that makes the development and rendering very easy and enhances the code clarity. It also supports virtual DOM that results in useful level of abstraction and minimum update time to the real DOM eventually offering high performance and better user experience. 
-
 You can easily manipulate the DOM, styling components and other components for better development. It implements one-way data binding that makes it so much easier to debug the files. It also supports many libraries like materialUI, react-bootstrap that helps in fast and efficient development. 
-
 Keeping all these things in view, I chose reacts.js instead of simple HTML and other frameworks as it provides a great development experience.
 
 For styling, SCSS has been used. SCSS supports CSS syntax and offers more work in less line of code. It helps in organizing the code better and allows you to use some cool features like using variables, nested selectors, mixins, loops, imports, classes etc. that allows easy styling, and results in more maintainable and less complex code. It basically makes CSS a lot more powerful simply by adding more benefits to it. I can design and style my own components using it as I like it. 
-
 Furthermore, react-bootstrap has been used for components as it makes the development fast and smooth. React bootstrap encapsulates bootstrap specs into components and supports semantics that are react-like that makes it so easy to use and helps in writing a cleaner code. Hence, I have used SCSS and react-bootstrap for styling instead of simple CSS.
 
 For testing, jest and react testing library have been used. The react testing library allows you to write maintainable component based tests very easily and allows you to test them just as the users will interact with them. 
-
 The use of react testing library with jest makes the testing faster, automated and instant and immediate feedback is provided. That's why I used react testing library along with jest to test my components.
 ```
 
@@ -65,17 +60,12 @@ The use of react testing library with jest makes the testing faster, automated a
 
 ```
 The code has been divided into two main folders src and public. The public folder contains all the images and assets used in the web app. 
-
 The src folder contains the main App.js file and has been further divided into Styles, **Tests** and the Components folder so that the application architecture and flow of code and logic is more understandable and less complex. 
-
 The Styles folder contains all the styling files, separated into 5 files, one for each view component. 
-
 The **Tests** folder contains all the unit tests for the application. It has total two test suites and 4 unit tests to test the Header and App components.
 
 The Components folder has been further divided into two more folder: Models and Views. The Models folder contains two files that contain methods for API calls and cache implementation for the Artist and Events separately. 
-
 The Views folder contains all the views i.e., components of the web application that will be rendered on the screen and will be visible to the user. It contains total 3 files to display Header, Carousel and Artist Components, and an Event folder. 
-
 The event folder further contains two files: one is the reusable Card component and second one uses the reusable component to display events. All these components are rendered using App.js file. 
 
 This division of application into small components has helped me to keep my methods, implementation and GUI separate and hence, making the application performance, readability and understanding better.
@@ -85,7 +75,6 @@ This division of application into small components has helped me to keep my meth
 
 ```
 React already comes pre-loaded with design patterns. For my application, I have used stateless component (Function-based component), Higher order component (Decorator pattern), Data-Down Actions-Up Design Pattern and Container component. 
-
 All these have helped to quickly structure my application, made my application code more understandable and has allowed easy abstraction.
 
 Furthermore, good coding practices have been adopted to build the application. I have made that sure no file has code exceeding 100 lines, Pascal Scale has been used for naming the files, all the style files have been places in one folder and inline CSS has been avoided, sufficient commenting has been used the code is self-explaining. Minimum code duplication and repetition rule has been applied.
@@ -95,11 +84,8 @@ Furthermore, good coding practices have been adopted to build the application. I
 
 ```
 When you open the web page, there is a header and a carousel on the screen. The header has bandsintown logo linked to their official page, a twitter logo linked to their twitter account and a Searchbar for user input. 
-
 The user can enter the name and search the artist. If the artist is not found a message is displayed on the screen. If the artist is found, the artist’s name, Facebook URL and image appears on the screen along with the button in the form of the card. 
-
 You can request upcoming events for the artist by clicking on the button in the artist card. All the upcoming events of that artist are rendered on the screen. Each event card contains country, city, venue, and date of the event. If there are no upcoming events, a message is displayed. 
-
 You can search as many artists and their events as you want. The app is fully responsive for each device.
 The screenshot of the desktop version can be found here:
 ```
